@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class CalculatorTest extends BaseTest{
+public class CalculatorTest extends BaseTest {
     //обычные
     @Test(groups = "smoke", priority = 2, testName = "Делим целые числа")
     public void divTestInteger(){
@@ -15,13 +15,13 @@ public class CalculatorTest extends BaseTest{
 
     @Test(groups = "smoke", priority = 1, testName = "Делим дробные числа")
     public void divTestDouble(){
-        Assert.assertEquals(calculator.div(5.0,2.0), 2.5);
+        Assert.assertEquals(calculator.div(5.0, 2.0), 2.5);
     }
 
     //данные через класс
     @Test(dataProvider = "provider", dataProviderClass = DataProvider.class, groups = "regression")
     public void calcWithParam(int a, int b, Object expect){
-        Assert.assertEquals(calculator.div(a,b), expect);
+        Assert.assertEquals(calculator.div(a, b), expect);
     }
 
     //данные через xml
@@ -48,12 +48,10 @@ public class CalculatorTest extends BaseTest{
     @Test(retryAnalyzer = Retry.class, groups = "regression")
     public void retryTest(){
         if (attempt >= 4){
-            Assert.assertEquals(calculator.div(4,2 ), 2);
+            Assert.assertEquals(calculator.div(4, 2 ), 2);
         } else {
             attempt++;
-            Assert.assertEquals(calculator.div(4,2), 4);
+            Assert.assertEquals(calculator.div(4, 2), 4);
         }
-
     }
-
 }

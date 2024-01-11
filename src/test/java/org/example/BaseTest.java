@@ -9,6 +9,7 @@ import org.testng.annotations.Listeners;
 public class BaseTest{
 
     Calculator calculator;
+
     @BeforeSuite
     @BeforeGroups(groups = {"regression", "smoke"})
     public void prepare(){
