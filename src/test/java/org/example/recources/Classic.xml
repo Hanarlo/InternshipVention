@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="classic run">
+    <parameter name="a" value="10"></parameter>
+    <parameter name="b" value="5"></parameter>
+    <parameter name="expect" value="2"></parameter>
+    <test name="test">
+        <classes>
+            <class name="org.example.CalculatorTest"></class>
+        </classes>
+    </test>
+</suite>
