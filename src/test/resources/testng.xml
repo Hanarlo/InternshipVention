@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SauceLabsFullTest">
+    <test name="SauceLabs">
+        <classes>
+            <class name="test.LoginTest">
+                <methods>
+                    <include name="standartLoginTest"></include>
+                </methods>
+            </class>
+            <class name="test.AddToCartTest"></class>
+            <class name="test.RemoveFromCartTest"></class>
+        </classes>
+    </test>
+</suite>
