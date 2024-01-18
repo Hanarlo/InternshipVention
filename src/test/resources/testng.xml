@@ -9,7 +9,7 @@
                 </methods>
             </class>
             <class name="test.AddToCartTest"></class>
-            <class name="test.RemoveFromCartTest"></class>
+            <class name="test.CheckoutTest"></class>
         </classes>
     </test>
 </suite>

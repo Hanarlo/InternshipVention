@@ -10,17 +10,20 @@ public class CartPage extends BasePage {
     private By removeGoodFromCartBtn = By.id("remove-sauce-labs-backpack");
     private By checkoutBtn = By.id("checkout");
 
-
     public CartPage(WebDriver driver) {
         super(driver);
     }
 
-
-    public WebElement getRemoveFromCartBtn(){
+    private WebElement getRemoveFromCartBtn(){
         return service.waitForVisibilityByLocator(removeGoodFromCartBtn);
     }
-
-    public WebElement getcheckoutBtn(){
+    private WebElement getcheckoutBtn(){
         return service.waitForVisibilityByLocator(checkoutBtn);
+    }
+    public void removeItemFromCart(){
+        getRemoveFromCartBtn().click();
+    }
+    public void goToCheckout(){
+        getcheckoutBtn().click();
     }
 }

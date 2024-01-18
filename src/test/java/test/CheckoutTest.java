@@ -9,17 +9,14 @@ public class CheckoutTest extends BaseTestClass {
 
     @Test(dependsOnGroups = {"addToCart"})
     public void checkoutStep(){
-        headBar.getCartBtn().click();
-        cartPage.getcheckoutBtn().click();
-        checkout.getFirstNameInput().sendKeys("TestName");
-        checkout.getLastNameInput().sendKeys("TestSurname");
-        checkout.getPostalCodeInput().sendKeys("12345");
-        checkout.getContinueBtn().click();
+        headBar.goToCart();
+        cartPage.goToCheckout();
+        checkout.enterDataAndClickContinue();
 
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/checkout-step-two.html");
         Assert.assertTrue(checkout.isItemInCheckout());
 
-        checkout.getFinishBtn().click();
+        checkout.clickOnFInishBtn();
 
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/checkout-complete.html");
         Assert.assertEquals(checkout.getCompleteBanner().getText(), "Thank you for your order!");

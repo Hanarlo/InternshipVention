@@ -8,8 +8,7 @@ public class AddToCartTest extends BaseTestClass {
 
     @Test(dependsOnGroups = {"login"}, groups = "addToCart")
     public void addToCartTest(){
-        System.out.println(driver.getCurrentUrl());
-        collectionPage.getAddToCartBackpackButton().click();
+        collectionPage.addBackPackToCart();
         Assert.assertEquals(headBar.getNumOfGoodsInCart().getText(), "1");
     }
 }

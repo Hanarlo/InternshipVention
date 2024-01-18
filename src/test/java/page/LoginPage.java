@@ -17,17 +17,23 @@ public class LoginPage extends BasePage {
     }
 
 
-    public WebElement getLoginInput(){
+    private WebElement getLoginInput(){
         return service.waitForVisibilityByLocator(loginInputLocator);
     }
-    public WebElement getPassInput(){
+    private WebElement getPassInput(){
         return service.waitForVisibilityByLocator(passInputLocator);
     }
-    public WebElement getButton(){
+    private WebElement getButton(){
         return service.waitForVisibilityByLocator(buttonLocator);
     }
 
     public WebElement geterrorMesage(){
         return service.waitForVisibilityByLocator(errorMesageLocator);
+    }
+
+    public void enterCredentials(String login, String pass){
+        getLoginInput().sendKeys(login);
+        getPassInput().sendKeys(pass);
+        getButton().click();
     }
 }

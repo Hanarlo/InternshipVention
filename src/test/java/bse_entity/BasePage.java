@@ -14,7 +14,4 @@ public class BasePage {
         this.driver = driver;
         service = new WaitService(driver, Duration.ofSeconds(10));
     }
-
-
-
 }

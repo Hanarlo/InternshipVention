@@ -8,8 +8,8 @@ public class RemoveFromCartTest extends BaseTestClass {
 
     @Test(dependsOnGroups = {"addToCart"})
     public void removeFromCart(){
-        headBar.getCartBtn().click();
-        cartPage.getRemoveFromCartBtn().click();
+        headBar.goToCart();
+        cartPage.removeItemFromCart();
         Assert.assertTrue(headBar.isNumOfGoodsInvisible());
     }
 }

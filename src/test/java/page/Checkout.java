@@ -17,21 +17,25 @@ public class Checkout extends BasePage {
     private By completeBanner = By.className("complete-header");
     private By ItemInCheckoutLocator = By.xpath("//a[@id='item_4_title_link']");
 
-    public WebElement getFirstNameInput(){
+    private WebElement getFirstNameInput(){
         return service.waitForVisibilityByLocator(firstNameInputLocator);
     }
-    public WebElement getLastNameInput(){
+    private WebElement getLastNameInput(){
         return service.waitForVisibilityByLocator(lastNameInputLocator);
     }
-    public WebElement getPostalCodeInput(){
+    private WebElement getPostalCodeInput(){
         return service.waitForVisibilityByLocator(postalCodeInputLocator);
     }
 
-    public WebElement getContinueBtn(){
+    private WebElement getContinueBtn(){
         return service.waitForVisibilityByLocator(continueBtn);
     }
-    public WebElement getFinishBtn(){
+    private WebElement getFinishBtn(){
         return service.waitForVisibilityByLocator(finishBtn);
+    }
+
+    public Checkout(WebDriver driver) {
+        super(driver);
     }
 
     public WebElement getCompleteBanner(){
@@ -42,9 +46,14 @@ public class Checkout extends BasePage {
         return service.waitForPresence(ItemInCheckoutLocator);
     }
 
+    public void enterDataAndClickContinue(){
+        getFirstNameInput().sendKeys("TestName");
+        getLastNameInput().sendKeys("TestSurname");
+        getPostalCodeInput().sendKeys("12345");
+        getContinueBtn().click();
+    }
 
-
-    public Checkout(WebDriver driver) {
-        super(driver);
+    public void clickOnFInishBtn(){
+        getFinishBtn().click();
     }
 }
