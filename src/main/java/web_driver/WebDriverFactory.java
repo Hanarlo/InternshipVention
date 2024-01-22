@@ -6,9 +6,14 @@ import org.openqa.selenium.edge.EdgeOptions;
 
 public class WebDriverFactory {
 
+    private static WebDriver driver;
+
     public WebDriver getDriver(){
         System.setProperty("webdriver.edge.driver", "src/main/resources/msedgedriver.exe");
-        return new EdgeDriver(edgeOptions());
+        if (driver == null){
+            driver = new EdgeDriver(edgeOptions());
+        }
+        return driver;
     }
 
     public EdgeOptions edgeOptions(){
