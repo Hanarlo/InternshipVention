@@ -2,15 +2,24 @@ package step;
 
 import page.AddProjectPage;
 import page.DashboardPage;
+import page.OverviewPage;
 
-public class AddProjectStep {
+public class Project {
 
     private DashboardPage dashboardPage;
     private AddProjectPage addProjectPage;
+    private OverviewPage overviewPage;
 
-    public AddProjectStep(DashboardPage dashboardPage, AddProjectPage addProjectPage) {
+    public Project(DashboardPage dashboardPage, AddProjectPage addProjectPage, OverviewPage overviewPage) {
         this.dashboardPage = dashboardPage;
         this.addProjectPage = addProjectPage;
+        this.overviewPage = overviewPage;
+    }
+
+    public void deleteProject(){
+        overviewPage.getDeleteBtn().click();
+        overviewPage.getCheckbox().click();
+        overviewPage.getConfirmButton().click();
     }
 
     public void createProject(){

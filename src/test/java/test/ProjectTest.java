@@ -1,29 +1,34 @@
 package test;
 
-import com.beust.ah.A;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import page.AddProjectPage;
 import page.DashboardPage;
 import page.OverviewPage;
-import step.AddProjectStep;
+import step.Project;
 import utils.BaseTest;
 
-public class CreateProjectTest extends BaseTest {
+public class ProjectTest extends BaseTest {
 
-    private AddProjectStep addProjectStep;
+    private Project project;
     private OverviewPage overviewPage;
 
     @BeforeMethod
     public void setUpMethod(){
         overviewPage = new OverviewPage();
-        addProjectStep = new AddProjectStep(new DashboardPage(), new AddProjectPage());
+        project = new Project(new DashboardPage(), new AddProjectPage(), new OverviewPage());
     }
 
     @Test(groups = {"create project"}, dependsOnGroups = {"login"})
     public void createProjectTest(){
-        addProjectStep.createProject();
+        project.createProject();
+        Assert.assertTrue(overviewPage.isBannerOnPage());
+    }
+
+    @Test(groups = {"create project"}, dependsOnGroups = {"login"})
+    public void deleteProjectTest(){
+        project.deleteProject();
         Assert.assertTrue(overviewPage.isBannerOnPage());
     }
 }
