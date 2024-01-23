@@ -12,26 +12,26 @@ public class LoginPage extends BasePage {
     private By buttonLocator = By.id("login-button");
     private By errorMesageLocator = By.cssSelector(".error-message-container");
 
-    public LoginPage(WebDriver driver){
+    public LoginPage(WebDriver driver) {
         super(driver);
     }
 
 
-    private WebElement getLoginInput(){
+    private WebElement getLoginInput() {
         return service.waitForVisibilityByLocator(loginInputLocator);
     }
-    private WebElement getPassInput(){
+    private WebElement getPassInput() {
         return service.waitForVisibilityByLocator(passInputLocator);
     }
-    private WebElement getButton(){
+    private WebElement getButton() {
         return service.waitForVisibilityByLocator(buttonLocator);
     }
 
-    public WebElement geterrorMesage(){
+    public WebElement geterrorMesage() {
         return service.waitForVisibilityByLocator(errorMesageLocator);
     }
 
-    public void enterCredentials(String login, String pass){
+    public void enterCredentials(String login, String pass) {
         getLoginInput().sendKeys(login);
         getPassInput().sendKeys(pass);
         getButton().click();

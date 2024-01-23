@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class RemoveFromCartTest extends BaseTestClass {
 
     @Test(dependsOnGroups = {"addToCart"})
-    public void removeFromCart(){
+    public void removeFromCart() {
         headBar.goToCart();
         cartPage.removeItemFromCart();
         Assert.assertTrue(headBar.isNumOfGoodsInvisible());

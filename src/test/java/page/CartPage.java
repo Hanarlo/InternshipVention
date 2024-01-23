@@ -14,16 +14,16 @@ public class CartPage extends BasePage {
         super(driver);
     }
 
-    private WebElement getRemoveFromCartBtn(){
+    private WebElement getRemoveFromCartBtn() {
         return service.waitForVisibilityByLocator(removeGoodFromCartBtn);
     }
-    private WebElement getcheckoutBtn(){
+    private WebElement getcheckoutBtn() {
         return service.waitForVisibilityByLocator(checkoutBtn);
     }
-    public void removeItemFromCart(){
+    public void removeItemFromCart() {
         getRemoveFromCartBtn().click();
     }
-    public void goToCheckout(){
+    public void goToCheckout() {
         getcheckoutBtn().click();
     }
 }

@@ -10,7 +10,7 @@ public class BasePage {
     WebDriver driver;
     public WaitService service;
 
-    public BasePage(WebDriver driver){
+    public BasePage(WebDriver driver) {
         this.driver = driver;
         service = new WaitService(driver, Duration.ofSeconds(10));
     }

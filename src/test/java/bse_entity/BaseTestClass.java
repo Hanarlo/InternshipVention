@@ -20,13 +20,13 @@ public class BaseTestClass {
     protected HeadBar headBar;
 
     @BeforeTest
-    public void setDriver(){
+    public void setDriver() {
         WebDriverFactory factory = new WebDriverFactory();
         driver = factory.getDriver();
     }
 
     @BeforeMethod
-    public void setUp(){
+    public void setUp() {
         loginPage = new LoginPage(driver);
         collectionPage = new CollectionPage(driver);
         cartPage = new CartPage(driver);

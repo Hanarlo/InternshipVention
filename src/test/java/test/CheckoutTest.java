@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class CheckoutTest extends BaseTestClass {
 
     @Test(dependsOnGroups = {"addToCart"})
-    public void checkoutStep(){
+    public void checkoutStep() {
         headBar.goToCart();
         cartPage.goToCheckout();
         checkout.enterDataAndClickContinue();

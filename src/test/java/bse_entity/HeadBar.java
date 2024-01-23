@@ -9,10 +9,10 @@ public class HeadBar extends BasePage {
     private By numOfGoodsInCartLocator = By.className("shopping_cart_badge");
     private By cartBtnLocator = By.id("shopping_cart_container");
 
-    public WebElement getNumOfGoodsInCart(){
+    public WebElement getNumOfGoodsInCart() {
         return service.waitForVisibilityByLocator(numOfGoodsInCartLocator);
     }
-    private WebElement getCartBtn(){return service.waitForVisibilityByLocator(cartBtnLocator);}
+    private WebElement getCartBtn() {return service.waitForVisibilityByLocator(cartBtnLocator);}
 
     public HeadBar(WebDriver driver) {
         super(driver);
@@ -22,7 +22,7 @@ public class HeadBar extends BasePage {
         return service.waitForInvisibility(numOfGoodsInCartLocator);
     }
 
-    public void goToCart(){
+    public void goToCart() {
         getCartBtn().click();
     }
 }

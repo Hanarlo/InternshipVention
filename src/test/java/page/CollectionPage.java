@@ -8,13 +8,13 @@ import org.openqa.selenium.WebElement;
 public class CollectionPage extends BasePage {
 
     private By addToCartBackpackButtonLocator = By.id("add-to-cart-sauce-labs-backpack");
-    private By imageLocator = By.xpath("//a[@id='item_4_img_link']/img");
+    private By imageLocator = By.id("item_4_img_link");
 
     public CollectionPage(WebDriver driver) {
         super(driver);
     }
 
-    private WebElement getAddToCartBackpackButton(){
+    private WebElement getAddToCartBackpackButton() {
         return service.waitForVisibilityByLocator(addToCartBackpackButtonLocator);
     }
 
