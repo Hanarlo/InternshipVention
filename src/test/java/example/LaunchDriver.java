@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class LaunchDriver{
 
     @Test
-    public void launchDriverTest(){
+    public void launchDriverTest() {
         AdvancedDriver advancedDriver = new AdvancedDriver();
         WebDriver webDriver = advancedDriver.getDriver();
         webDriver.quit();

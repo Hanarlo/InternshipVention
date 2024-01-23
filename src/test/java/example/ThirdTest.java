@@ -12,7 +12,7 @@ import java.time.Duration;
 public class ThirdTest extends BaseTest{
     //не работает из-за проверки на робота
     @Test
-    public void laminateTest(){
+    public void laminateTest() {
         webDriver.get("https://calc.by/building-calculators/laminate.html");
         WebElement element = (new WebDriverWait(webDriver, Duration.ofSeconds(10)))
                 .until(ExpectedConditions.elementToBeClickable(By.id("In_room_id")));
@@ -21,6 +21,5 @@ public class ThirdTest extends BaseTest{
 
         Assert.assertEquals(length.getText(), "430");
         Assert.assertEquals(nPacking.getText(), "8");
-
     }
 }

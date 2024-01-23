@@ -15,7 +15,7 @@ public class SecondTest extends BaseTest{
     }
     //не работает,так как там калькулятор подгружается из js
     @Test
-    public void skfTest() throws InterruptedException{
+    public void skfTest() throws InterruptedException {
         webDriver.get("https://bymed.top/calc/%d1%81%d0%ba%d1%84-2148");
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) webDriver;
         javascriptExecutor.executeScript("window.scrollBy(0,350)", "");
@@ -40,6 +40,5 @@ public class SecondTest extends BaseTest{
 
         WebElement mdrd = webDriver.findElement(By.id("mdrd_res"));
         Assert.assertEquals(mdrd.getText(), 1177.97);
-
     }
 }

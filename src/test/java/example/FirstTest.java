@@ -10,7 +10,7 @@ public class FirstTest extends BaseTest {
 
     //работает
     @Test
-    public void kalkulatorTest() throws InterruptedException{
+    public void kalkulatorTest() throws InterruptedException {
         webDriver.get("https://clinic-cvetkov.ru/company/kalkulyator-imt/");
         WebElement weight = webDriver.findElement(By.name("weight"));
         WebElement height = webDriver.findElement(By.name("height"));
