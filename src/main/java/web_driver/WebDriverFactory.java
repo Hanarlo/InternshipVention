@@ -6,12 +6,16 @@ import org.openqa.selenium.edge.EdgeOptions;
 
 public class WebDriverFactory {
 
-    public WebDriver getDriver(){
-        System.setProperty("webdriver.edge.driver", "src/main/resources/msedgedriver.exe");
-        return new EdgeDriver(edgeOptions());
+    private static WebDriver driver;
+    public static WebDriver getDriver() {
+        if (driver == null) {
+            System.setProperty("webdriver.edge.driver", "src/main/resources/msedgedriver.exe");
+            driver = new EdgeDriver(edgeOptions());
+        }
+        return driver;
     }
 
-    public EdgeOptions edgeOptions(){
+    public static EdgeOptions edgeOptions() {
         EdgeOptions edgeOptions = new EdgeOptions();
 
         edgeOptions.setHeadless(true);
@@ -23,5 +27,4 @@ public class WebDriverFactory {
 
         return edgeOptions;
     }
-
 }
