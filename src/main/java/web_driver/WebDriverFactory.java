@@ -9,7 +9,7 @@ public class WebDriverFactory {
 
     private static WebDriver driver;
 
-    public WebDriver getDriver(){
+    public WebDriver getDriver() {
         WebDriverManager.edgedriver().setup();
         if (driver == null){
             driver = new EdgeDriver(edgeOptions());
@@ -17,7 +17,7 @@ public class WebDriverFactory {
         return driver;
     }
 
-    public EdgeOptions edgeOptions(){
+    public EdgeOptions edgeOptions() {
         EdgeOptions edgeOptions = new EdgeOptions();
 
         edgeOptions.setHeadless(true);
@@ -29,5 +29,4 @@ public class WebDriverFactory {
 
         return edgeOptions;
     }
-
 }

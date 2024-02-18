@@ -16,19 +16,21 @@ public class Project {
         this.overviewPage = overviewPage;
     }
 
-    public void deleteProject(){
+    public void deleteProject() {
         overviewPage.getDeleteBtn().click();
         overviewPage.getCheckbox().click();
         overviewPage.getConfirmButton().click();
     }
 
-    public void createProject(){
+    public void createProject() {
         dashboardPage.getAddProjectBtn().click();
 
         addProjectPage.getNameInput().sendKeys("test");
         addProjectPage.getAccessBtn().click();
-        addProjectPage.getAccessDropdownBtn().click();
-        addProjectPage.getDesignerDropdownMenuLink().click();
+        addProjectPage.getRadioButtonTable().selectButtonByValue(1);
+        //
+        addProjectPage.getAccessDropdownBtn().select.selectByValue("Designer");
+        //
         addProjectPage.getAcceptBtn().click();
     }
 }

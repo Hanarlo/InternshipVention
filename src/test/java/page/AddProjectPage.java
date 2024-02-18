@@ -1,5 +1,9 @@
 package page;
 
+import elements.Button;
+import elements.DropDown;
+import elements.RadioButtonTable;
+import elements.TextInput;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utils.BasePage;
@@ -9,23 +13,27 @@ public class AddProjectPage extends BasePage {
     private By nameInputLocator = By.id("name");
     private By accessBtnLocator = By.id("projects-tabs-access");
     private By accessDropdownBtnLocator = By.className("dropdown-icon-black");
-    private By designerDropdownLinkLocator = By.xpath("//a[contains(text(), 'Designer')]");
+
+    private By radioButtonTableLocator = By.cssSelector("div.dirty-trackable.tab.tab1 > div.table");
     private By acceptBtnLocator = By.id("accept");
 
-    public WebElement getNameInput(){
-        return service.waitForVisibilityByLocator(nameInputLocator);
+    public TextInput getNameInput() {
+        return new TextInput(webDriver, nameInputLocator);
     }
-    public WebElement getAccessBtn(){
-        return service.waitForVisibilityByLocator(accessBtnLocator);
+    public Button getAccessBtn() {
+        return new Button(webDriver, accessBtnLocator);
     }
-    public WebElement getAccessDropdownBtn(){
-        return service.waitForVisibilityByLocator(accessDropdownBtnLocator);
+
+    public RadioButtonTable getRadioButtonTable() {
+        return new RadioButtonTable(webDriver, radioButtonTableLocator);
     }
-    public WebElement getDesignerDropdownMenuLink(){
-        return service.waitForVisibilityByLocator(designerDropdownLinkLocator);
+
+    public DropDown getAccessDropdownBtn() {
+        return new DropDown(webDriver, accessDropdownBtnLocator);
     }
-    public WebElement getAcceptBtn(){
-        return service.waitForVisibilityByLocator(acceptBtnLocator);
+
+    public Button getAcceptBtn() {
+        return new Button(webDriver, acceptBtnLocator);
     }
 
 }

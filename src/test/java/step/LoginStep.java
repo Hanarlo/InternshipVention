@@ -10,10 +10,9 @@ public class LoginStep {
         this.loginPage = loginPage;
     }
 
-    public void performLogin(String email, String pass){
+    public void performLogin(String email, String pass) {
         loginPage.getEmailInput().sendKeys(email);
         loginPage.getPassInput().sendKeys(pass);
         loginPage.getLoginButton().click();
     }
-
 }

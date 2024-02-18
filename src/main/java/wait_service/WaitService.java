@@ -12,11 +12,11 @@ public class WaitService {
 
     private WebDriverWait wait;
 
-    public WaitService(WebDriver driver){
+    public WaitService(WebDriver driver) {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public WebElement waitForVisibilityByLocator(By lo){
+    public WebElement waitForVisibilityByLocator(By lo) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(lo));
     }
 
