@@ -1,5 +1,8 @@
 package step;
 
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.testng.Assert;
 import page.AddProjectPage;
 import page.DashboardPage;
 import page.OverviewPage;
@@ -10,19 +13,22 @@ public class Project {
     private AddProjectPage addProjectPage;
     private OverviewPage overviewPage;
 
+
+
     public Project(DashboardPage dashboardPage, AddProjectPage addProjectPage, OverviewPage overviewPage) {
         this.dashboardPage = dashboardPage;
         this.addProjectPage = addProjectPage;
         this.overviewPage = overviewPage;
     }
 
-    public void deleteProject(){
+    @When("Delete project")
+    public void deleteProject() {
         overviewPage.getDeleteBtn().click();
         overviewPage.getCheckbox().click();
         overviewPage.getConfirmButton().click();
     }
-
-    public void createProject(){
+    @When("Create project")
+    public void createProject() {
         dashboardPage.getAddProjectBtn().click();
 
         addProjectPage.getNameInput().sendKeys("test");
@@ -30,5 +36,10 @@ public class Project {
         addProjectPage.getAccessDropdownBtn().click();
         addProjectPage.getDesignerDropdownMenuLink().click();
         addProjectPage.getAcceptBtn().click();
+    }
+
+    @Then("Banner on a page")
+    public void isBannerOnPage() {
+        Assert.assertTrue(overviewPage.isBannerOnPage());
     }
 }
