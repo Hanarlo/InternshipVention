@@ -6,8 +6,9 @@ import org.testng.Assert;
 import page.AddProjectPage;
 import page.DashboardPage;
 import page.OverviewPage;
+import utils.BaseCucumberStep;
 
-public class Project {
+public class Project extends BaseCucumberStep {
 
     private DashboardPage dashboardPage;
     private AddProjectPage addProjectPage;

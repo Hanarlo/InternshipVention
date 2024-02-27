@@ -5,16 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 
-public class WebDriverFactory {
+public class WebDriverService {
 
     private static WebDriver driver;
 
     public WebDriver getDriver(){
         WebDriverManager.edgedriver().setup();
-        if (driver == null){
-            driver = new EdgeDriver(edgeOptions());
-        }
-        return driver;
+        return new EdgeDriver(edgeOptions());
     }
 
     public EdgeOptions edgeOptions(){
