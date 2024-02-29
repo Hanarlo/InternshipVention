@@ -7,14 +7,10 @@ import org.openqa.selenium.edge.EdgeOptions;
 
 public class WebDriverService {
 
-    private static WebDriver driver;
+    private WebDriver driver;
 
-    public WebDriver getDriver(){
+    public WebDriverService() {
         WebDriverManager.edgedriver().setup();
-        return new EdgeDriver(edgeOptions());
-    }
-
-    public EdgeOptions edgeOptions(){
         EdgeOptions edgeOptions = new EdgeOptions();
 
         edgeOptions.setHeadless(true);
@@ -23,8 +19,11 @@ public class WebDriverService {
         edgeOptions.addArguments("--ignore-certificate-errors");
         edgeOptions.addArguments("--silent");
         edgeOptions.addArguments("--start-maximized");
+        driver = new EdgeDriver(edgeOptions);
+    }
 
-        return edgeOptions;
+    public WebDriver getDriver() {
+        return driver;
     }
 
 }

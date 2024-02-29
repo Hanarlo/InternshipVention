@@ -1,14 +1,13 @@
 Feature: Full test rail test
-  Scenario: Login attempt
+  Scenario: Login, create project, delete project
     Given driver is ready
+    Given page is opened
     Then login page is opened
-    When perform login with "chichaevwork+qazwsx@gmail.com" email and "Qwerty1234%" password
+    When perform login with "email" email and "password" password
     Then Dashboard page is opened
-
-  Scenario: Create project
+    Given pages opened
     When Create project
     Then Banner on a page
-
-  Scenario: Delete project
     When Delete project
     Then Banner on a page
+

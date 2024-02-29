@@ -1,5 +1,7 @@
 package step;
 
+import com.beust.ah.A;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
@@ -16,10 +18,11 @@ public class Project extends BaseCucumberStep {
 
 
 
-    public Project(DashboardPage dashboardPage, AddProjectPage addProjectPage, OverviewPage overviewPage) {
-        this.dashboardPage = dashboardPage;
-        this.addProjectPage = addProjectPage;
-        this.overviewPage = overviewPage;
+    @Given("pages opened")
+    public void openPages() {
+        dashboardPage = new DashboardPage(driver);
+        addProjectPage = new AddProjectPage(driver);
+        overviewPage = new OverviewPage(driver);
     }
 
     @When("Delete project")

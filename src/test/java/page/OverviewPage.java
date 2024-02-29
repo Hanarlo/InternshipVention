@@ -1,6 +1,7 @@
 package page;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.BasePage;
 
@@ -11,16 +12,20 @@ public class OverviewPage extends BasePage {
     private By checkboxLocator = By.xpath("//span[@class = 'dialog-confirm']/strong[contains(text(), 'Yes')]");
     private By confirmButtonLocator = By.xpath("//a[@data-testid = 'caseFieldsTabDeleteDialogButtonOk']");
 
-    public Boolean isBannerOnPage(){
+    public OverviewPage(WebDriver driver) {
+        super(driver);
+    }
+
+    public Boolean isBannerOnPage() {
         return isItemOnAPage(successBannerLocator);
     }
-    public WebElement getDeleteBtn(){
+    public WebElement getDeleteBtn() {
         return service.waitForVisibilityByLocator(deleteBtnLocator);
     }
-    public WebElement getCheckbox(){
+    public WebElement getCheckbox() {
         return service.waitForVisibilityByLocator(checkboxLocator);
     }
-    public WebElement getConfirmButton(){
+    public WebElement getConfirmButton() {
         return service.waitForVisibilityByLocator(confirmButtonLocator);
     }
 }
