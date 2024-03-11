@@ -8,6 +8,7 @@ import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j;
 import org.apache.http.HttpStatus;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import specs.Specification;
 import utils.Data;
@@ -23,6 +24,12 @@ import static org.hamcrest.Matchers.hasItems;
 
 @Log
 public class RestTest {
+
+    @Test
+    @Parameters("text")
+    public void textFromJenkinsTest(String text){
+        System.out.println(text);
+    }
 
     @Test
     public void createUserTest(){
