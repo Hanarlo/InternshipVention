@@ -1,22 +1,20 @@
 package utils;
 
+import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
-import web_driver.WebDriverFactory;
+import org.testng.annotations.BeforeSuite;
 
 public class BaseTest {
 
     protected static WebDriver driver;
 
-    @BeforeMethod
+    @BeforeSuite
     public void setUp(){
-        WebDriverFactory factory = new WebDriverFactory();
-        driver = factory.getDriver();
+        Configuration.baseUrl = "https://google.com/";
+        Configuration.browser = "SelenoidDriverProvider";
+        Configuration.timeout = 10000;
+        Configuration.browserSize = "1600x1400";
     }
 
-    @AfterSuite
-    public void wrapUp(){
-        driver.quit();
-    }
 }
