@@ -36,24 +36,30 @@ public class ProjectSettingsTest extends BaseTest {
 
     @Story("checking for boundary values")
     @Test
-    public void boundaryValuesTest() {
-        //Добавить класс что бы данные высылал
+    public void boundaryValuesTest() throws InterruptedException {
         projectSettingsStep.Input2Characters();
         Assert.assertTrue(projectSettingsStep.isErrorMessageVisible());
         Assert.assertFalse(projectSettingsStep.isButtonActive());
+        Thread.sleep(100);
         projectSettingsStep.Input3Characters();
         Assert.assertTrue(projectSettingsStep.isButtonActive());
+        Thread.sleep(100);
         projectSettingsStep.Input4Characters();
         Assert.assertTrue(projectSettingsStep.isButtonActive());
+        Thread.sleep(100);
         projectSettingsStep.Input20Characters();
         Assert.assertTrue(projectSettingsStep.isButtonActive());
+        Thread.sleep(100);
         projectSettingsStep.Input39Characters();
         Assert.assertTrue(projectSettingsStep.isButtonActive());
+        Thread.sleep(100);
         projectSettingsStep.Input40Characters();
         Assert.assertTrue(projectSettingsStep.isButtonActive());
+        Thread.sleep(100);
         projectSettingsStep.Input41Characters();
         Assert.assertTrue(projectSettingsStep.isErrorMessageVisible());
         Assert.assertFalse(projectSettingsStep.isButtonActive());
+        Thread.sleep(100);
         projectSettingsStep.resetNameInputValue();
     }
 

@@ -6,7 +6,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 
 public class WebDriverFactory {
 
-    private WebDriver driver;
+    private static WebDriver driver;
 
     public WebDriver getDriver() {
         System.setProperty("webdriver.edge.driver", "src/main/resources/msedgedriver.exe");

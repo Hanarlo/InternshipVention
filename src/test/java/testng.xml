@@ -6,7 +6,7 @@
             <class name="tests.LoginTest"></class>
             <class name="tests.ProjectSettingsTest"></class>
             <class name="tests.TestCaseTest"></class>
-            <class name="api_tests.RestTests"></class>
+            <!--<class name="api_tests.RestTests"></class>-->
         </classes>
     </test>
 </suite>

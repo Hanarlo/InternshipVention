@@ -12,7 +12,7 @@ public class IntegrationsPage extends BasePage {
     private final By urlInputLocator = By.cssSelector("input[data-testid='textbox-prop-url']");
     private final By accessCodeInputLocator = By.cssSelector("input[data-testid='textbox-prop-secret_token']");
     private final By testConnectionButton = By.cssSelector("button[data-testid='button-test-connection']");
-    private final By errorMessage = By.xpath("//div[@class='sc-eDLKkx sc-gLLuof foyOfa btoZlS sc-jKsysk iJSYdG']");
+    private final By errorMessage = By.xpath("//a[@href='https://app.testiny.io/github.com']/..");
     private final By closeButton = By.cssSelector("button[data-testid='button-close-entity']");
 
     private final By discardButtonLocator = By.cssSelector("button[data-testid='button-affirm']");
