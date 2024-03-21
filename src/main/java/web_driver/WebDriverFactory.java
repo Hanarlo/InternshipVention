@@ -6,22 +6,20 @@ import org.openqa.selenium.edge.EdgeOptions;
 
 public class WebDriverFactory {
 
-    public WebDriver getDriver(){
+    private WebDriver driver;
+
+    public WebDriver getDriver() {
         System.setProperty("webdriver.edge.driver", "src/main/resources/msedgedriver.exe");
-        return new EdgeDriver(edgeOptions());
+        if (driver == null){
+            driver = new EdgeDriver(edgeOptions());
+        }
+        return driver;
     }
 
-    public EdgeOptions edgeOptions(){
+    public EdgeOptions edgeOptions() {
         EdgeOptions edgeOptions = new EdgeOptions();
-
-        edgeOptions.setHeadless(true);
-        edgeOptions.addArguments("--disable-gpu");
         edgeOptions.addArguments("--window-size=1920,1200");
         edgeOptions.addArguments("--ignore-certificate-errors");
-        edgeOptions.addArguments("--silent");
-        edgeOptions.addArguments("--start-maximized");
-
         return edgeOptions;
     }
-
 }
