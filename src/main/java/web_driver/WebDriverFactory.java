@@ -1,6 +1,8 @@
 package web_driver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 
@@ -9,9 +11,9 @@ public class WebDriverFactory {
     private static WebDriver driver;
 
     public WebDriver getDriver() {
-        System.setProperty("webdriver.edge.driver", "src/main/resources/msedgedriver.exe");
         if (driver == null){
-            driver = new EdgeDriver(edgeOptions());
+            WebDriverManager.chromedriver().driverVersion("123.0.6312.58").setup();
+            driver = new ChromeDriver();
         }
         return driver;
     }
