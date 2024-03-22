@@ -78,7 +78,7 @@ public class ProjectSettingsTest extends BaseTest {
     }
 
     @Story("checking for incorrect data")
-    @Test(dependsOnMethods = "uploadImageTest")
+    @Test(dependsOnMethods = "uploadImageTest", alwaysRun = true)
     public void incorrectDataTest() {
         accountSettingsStep.changeUsername();
         Assert.assertFalse(projectSettingsStep.isButtonActive());
