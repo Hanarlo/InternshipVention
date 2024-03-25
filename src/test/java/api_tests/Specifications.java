@@ -9,13 +9,12 @@ import io.restassured.specification.ResponseSpecification;
 
 public class Specifications {
 
-    private final static String key = System.getProperty("apiKey");
 
     public static RequestSpecification requestSpecification() {
         return new RequestSpecBuilder()
                 .setBaseUri("https://app.testiny.io/api/v1/")
                 .setContentType(ContentType.JSON)
-                .addHeader("X-Api-Key", key)
+                .addHeader("", "4pZB6aUsSUYngWiEopPYvr5bm5aJy55g6gfFHcxEyi7o6E9m")
                 .build();
     }
 
