@@ -65,6 +65,6 @@ public class RestTests {
     public void PostRequestForTestCaseCreateTest() {
         String today = LocalDate.now().toString();
         Specifications.installSpecification(Specifications.requestSpecification(), Specifications.responseSpecification200());
-        given().header("X-Api-Key", key).body("{\n" + "    \"title\": \"CaseFromRest\",\n" + "    \"project_id\" : 1\n" + "}").when().post("testcase").then().body("title", equalTo("TestCaseFromRest"), "created_at", containsString(today));
+        given().header("X-Api-Key", key).body("{\n" + "    \"title\": \"CaseFromRest\",\n" + "    \"project_id\" : 1\n" + "}").when().post("testcase").then().body("title", equalTo("CaseFromRest"), "created_at", containsString(today));
     }
 }
