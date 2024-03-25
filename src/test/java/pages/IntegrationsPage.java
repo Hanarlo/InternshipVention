@@ -7,8 +7,7 @@ import utils.BasePage;
 public class IntegrationsPage extends BasePage {
 
     private final By integrationsMenuButtonLocator = By.cssSelector("li[data-testid='item-integrations']");
-    private final By addGitHubIntegrationButtonLocator = By.cssSelector(
-            "button[data-testid='button-add-integration-github']");
+    private final By addGitHubIntegrationButtonLocator = By.cssSelector("button[data-testid='button-add-integration-github']");
     private final By urlInputLocator = By.cssSelector("input[data-testid='textbox-prop-url']");
     private final By accessCodeInputLocator = By.cssSelector("input[data-testid='textbox-prop-secret_token']");
     private final By testConnectionButton = By.cssSelector("button[data-testid='button-test-connection']");

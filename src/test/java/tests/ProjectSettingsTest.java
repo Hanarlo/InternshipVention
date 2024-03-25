@@ -13,6 +13,7 @@ import steps.DashboardStep;
 import steps.IntegrationsStep;
 import steps.ProjectSettingsStep;
 import utils.BaseTest;
+import utils.StringsProvider;
 
 import java.awt.*;
 import java.net.URISyntaxException;
@@ -34,37 +35,32 @@ public class ProjectSettingsTest extends BaseTest {
         dashboardStep.goToProjectSettings();
     }
 
-    @Story("checking for boundary values")
     @Test
-    public void boundaryValuesTest() throws InterruptedException {
+    @Story("checking boundary values with less then minimum")
+    public void inputTwoValues() {
         projectSettingsStep.Input2Characters();
         Assert.assertTrue(projectSettingsStep.isErrorMessageVisible());
         Assert.assertFalse(projectSettingsStep.isButtonActive());
-        Thread.sleep(100);
-        projectSettingsStep.Input3Characters();
+    }
+
+    @Story("checking for boundary values")
+    @Test(dependsOnMethods = "inputTwoValues", dataProviderClass = StringsProvider.class, dataProvider = "strings")
+    public void boundaryValuesTest(String text) {
+        projectSettingsStep.input(text);
         Assert.assertTrue(projectSettingsStep.isButtonActive());
-        Thread.sleep(100);
-        projectSettingsStep.Input4Characters();
-        Assert.assertTrue(projectSettingsStep.isButtonActive());
-        Thread.sleep(100);
-        projectSettingsStep.Input20Characters();
-        Assert.assertTrue(projectSettingsStep.isButtonActive());
-        Thread.sleep(100);
-        projectSettingsStep.Input39Characters();
-        Assert.assertTrue(projectSettingsStep.isButtonActive());
-        Thread.sleep(100);
-        projectSettingsStep.Input40Characters();
-        Assert.assertTrue(projectSettingsStep.isButtonActive());
-        Thread.sleep(100);
+    }
+
+    @Story("checking boundary values with more then maximum")
+    @Test(dependsOnMethods = "boundaryValuesTest")
+    public void input41Value() {
         projectSettingsStep.Input41Characters();
         Assert.assertTrue(projectSettingsStep.isErrorMessageVisible());
         Assert.assertFalse(projectSettingsStep.isButtonActive());
-        Thread.sleep(100);
         projectSettingsStep.resetNameInputValue();
     }
 
     @Story("Checking for error when trying to connect gitHub integration with defect in inputs")
-    @Test(dependsOnMethods = "boundaryValuesTest")
+    @Test(dependsOnMethods = "input41Value")
     public void gitHubIntegrationTest() {
         Assert.assertTrue(integrationsStep.connectGithubWithWrongCredentials());
     }

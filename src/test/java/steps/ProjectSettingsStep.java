@@ -24,46 +24,20 @@ public class ProjectSettingsStep {
         page.getNameInput().clear();
     }
 
+    @Step("input characters")
+    public void input(String text){
+        page.getNameInput().sendKeys(text);
+    }
+
     @Step("input 2 characters")
     public void Input2Characters() {
         clearNameInputValue();
         page.getNameInput().sendKeys("ab");
     }
 
-    @Step("input 3 characters")
-    public void Input3Characters() {
-        clearNameInputValue();
-        page.getNameInput().sendKeys("abc");
-    }
-
-    @Step("input 4 characters")
-    public void Input4Characters() {
-        clearNameInputValue();
-        page.getNameInput().sendKeys("abcd");
-    }
-
-    @Step("input 20 characters")
-    public void Input20Characters() {
-        clearNameInputValue();
-        page.getNameInput().sendKeys("qazwsxqazwsxqazwsxqa");
-    }
-
-    @Step("input 39 characters")
-    public void Input39Characters() {
-        clearNameInputValue();
-        page.getNameInput().sendKeys("qazwsxqazwsxqazwsxqaqazwsxqazwsxqazwsxq");
-    }
-
-    @Step("input 40 characters")
-    public void Input40Characters() {
-        clearNameInputValue();
-        page.getNameInput().sendKeys("qazwsxqazwsxqazwsxqaqazwsxqazwsxqazwsxqq");
-    }
-
     @Step("input 41 characters")
     public void Input41Characters() {
-        clearNameInputValue();
-        page.getNameInput().sendKeys("qazwsxqazwsxqazwsxqaqazwsxqazwsxqazwsxqqq");
+        page.getNameInput().sendKeys("q");
     }
 
     @Step("Reset name input value")

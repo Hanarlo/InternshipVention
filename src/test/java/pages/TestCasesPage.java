@@ -36,7 +36,7 @@ public class TestCasesPage extends BasePage {
     }
 
     public boolean isTestCaseExists() {
-        return driver.findElements(testCaseNameLocator).size() > 0;
+        return !driver.findElements(testCaseNameLocator).isEmpty();
     }
 
     public WebElement getButtonDelete() {

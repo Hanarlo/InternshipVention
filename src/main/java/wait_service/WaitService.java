@@ -16,19 +16,11 @@ public class WaitService {
         wait = new WebDriverWait(driver, duration);
     }
 
-    public WebElement waitUntilVisible(WebElement element) {
-        return wait.until(ExpectedConditions.visibilityOf(element));
-    }
-
     public WebElement waitUntilVisibleByLocator(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     public WebElement waitUntilClickable(By locator) {
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
-    }
-
-    public Boolean waitUntilPresent() {
-        return wait.until(ExpectedConditions.urlToBe("https://app.testiny.io/DP/dashboard"));
     }
 }
