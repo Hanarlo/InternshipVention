@@ -64,6 +64,7 @@ public class ProjectSettingsTest extends BaseTest {
     @Story("Upload image")
     @Test(dependsOnMethods = "gitHubIntegrationTest", alwaysRun = true)
     public void uploadImageTest() throws AWTException, InterruptedException, URISyntaxException {
+        integrationsStep.exitFromIntegrationPage();
         accountSettingsStep.uploadImage();
         Thread.sleep(1000);
         Assert.assertTrue(accountSettingsStep.isImageOnAPage());
