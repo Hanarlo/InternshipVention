@@ -13,7 +13,7 @@ public class IntegrationsStep {
     }
 
     @Step("Trying to connect git hub with wrong credentials and get error message")
-    public Boolean connectGithubWithWrongCredentials() {
+    public Boolean connectGithub() {
         Allure.step("navigate to integrations page");
         page.getIntegrationMenuButton().click();
         Allure.step("opening git hub integration settings");

@@ -38,7 +38,7 @@ public class IntegrationsPage extends BasePage {
     }
 
     public WebElement getSuccessMessage() {
-        return wait.waitUntilVisibleByLocator(successMessage);
+        return driver.findElement(successMessage);
     }
 
     public WebElement getCancelButton() {

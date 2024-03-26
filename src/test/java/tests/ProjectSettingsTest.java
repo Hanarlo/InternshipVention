@@ -55,14 +55,14 @@ public class ProjectSettingsTest extends BaseTest {
         projectSettingsStep.resetNameInputValue();
     }
 
-    @Story("Checking for error when trying to connect gitHub integration with defect in inputs")
+    @Story("trying connect gitHub integration")
     @Test(dependsOnMethods = "input41Value")
     public void gitHubIntegrationTest() {
-        Assert.assertTrue(integrationsStep.connectGithubWithWrongCredentials());
+        Assert.assertTrue(integrationsStep.connectGithub());
     }
 
     @Story("Upload image")
-    @Test(dependsOnMethods = "gitHubIntegrationTest")
+    @Test(dependsOnMethods = "gitHubIntegrationTest", alwaysRun = true)
     public void uploadImageTest() throws AWTException, InterruptedException, URISyntaxException {
         accountSettingsStep.uploadImage();
         Thread.sleep(1000);
