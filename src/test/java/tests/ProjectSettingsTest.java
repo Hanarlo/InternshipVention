@@ -57,7 +57,7 @@ public class ProjectSettingsTest extends BaseTest {
 
     @Story("trying connect gitHub integration")
     @Test(dependsOnMethods = "input41Value")
-    public void gitHubIntegrationTest() {
+    public void gitHubIntegrationTest(){
         Assert.assertTrue(integrationsStep.connectGithub());
     }
 
