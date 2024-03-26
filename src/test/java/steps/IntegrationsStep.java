@@ -23,7 +23,7 @@ public class IntegrationsStep {
         page.getAccessCodeInput().sendKeys("abrakadabra");
         Allure.step("checking is api responds correctly");
         page.getTestConnectionButton().click();
-        boolean result = page.getErrorMessage().isDisplayed();
+        boolean result = page.getSuccessMessage().isDisplayed();
         page.getCancelButton().click();
         page.getDiscardButton().click();
         return result;

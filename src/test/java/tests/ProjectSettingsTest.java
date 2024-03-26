@@ -4,10 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.DashboardPage;
-import pages.ProjectSettingsPage;
 import steps.AccountSettingsStep;
 import steps.DashboardStep;
 import steps.IntegrationsStep;
@@ -18,17 +15,16 @@ import utils.StringsProvider;
 import java.awt.*;
 import java.net.URISyntaxException;
 
-@Epic("Testing for boundary values, file upload, and dialog box")
+@Epic("Testing for text inputs, file upload, and dialog box")
 public class ProjectSettingsTest extends BaseTest {
 
-    private DashboardStep dashboardStep;
     private ProjectSettingsStep projectSettingsStep;
     private IntegrationsStep integrationsStep;
     private AccountSettingsStep accountSettingsStep;
 
     @BeforeClass
     private void setUpMethod() {
-        dashboardStep = new DashboardStep();
+        DashboardStep dashboardStep = new DashboardStep();
         projectSettingsStep = new ProjectSettingsStep();
         integrationsStep = new IntegrationsStep();
         accountSettingsStep = new AccountSettingsStep();

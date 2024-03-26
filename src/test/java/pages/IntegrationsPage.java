@@ -11,7 +11,7 @@ public class IntegrationsPage extends BasePage {
     private final By urlInputLocator = By.cssSelector("input[data-testid='textbox-prop-url']");
     private final By accessCodeInputLocator = By.cssSelector("input[data-testid='textbox-prop-secret_token']");
     private final By testConnectionButton = By.cssSelector("button[data-testid='button-test-connection']");
-    private final By errorMessage = By.xpath("//a[@href='https://app.testiny.io/github.com']/..");
+    private final By successMessage = By.xpath("//div[contains(text(), 'Successfully connected to GitHub.')]");
     private final By closeButton = By.cssSelector("button[data-testid='button-close-entity']");
 
     private final By discardButtonLocator = By.cssSelector("button[data-testid='button-affirm']");
@@ -37,8 +37,8 @@ public class IntegrationsPage extends BasePage {
         return wait.waitUntilVisibleByLocator(testConnectionButton);
     }
 
-    public WebElement getErrorMessage() {
-        return wait.waitUntilVisibleByLocator(errorMessage);
+    public WebElement getSuccessMessage() {
+        return wait.waitUntilVisibleByLocator(successMessage);
     }
 
     public WebElement getCancelButton() {
