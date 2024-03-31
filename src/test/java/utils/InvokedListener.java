@@ -11,20 +11,17 @@ import org.openqa.selenium.WebDriver;
 import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
 import org.testng.ITestResult;
-import tests.LoginTest;
 import web_driver.WebDriverFactory;
 
 
 public class InvokedListener implements IInvokedMethodListener {
 
     WebDriver driver;
-    WebDriverFactory factory;
 
     private static final Logger logger = LogManager.getLogger(InvokedListener.class);
 
     public void afterInvocation(IInvokedMethod method, ITestResult result) {
-        factory = new WebDriverFactory();
-        driver = factory.getDriver();
+        driver = WebDriverFactory.getDriver();
         if (result.getStatus() == ITestResult.FAILURE) {
             String message = "-------TEST FAILURE------     " + method.getTestMethod().getMethodName() + "\n" + result.getThrowable() + "\n";
             logger.log(Level.ERROR, message);
@@ -33,7 +30,7 @@ public class InvokedListener implements IInvokedMethodListener {
                 byte[] srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
                 saveScreenshot(srcFile);
             } catch (NoSuchSessionException ex) {
-
+                logger.log(Level.ERROR, "screenshot save fail!");
             }
         } else if (result.getStatus() == ITestResult.SKIP) {
             String message = "-------TEST SKIP------     " + method.getTestMethod().getMethodName() + "\n" + result.getSkipCausedBy();

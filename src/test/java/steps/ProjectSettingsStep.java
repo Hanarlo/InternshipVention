@@ -1,15 +1,7 @@
 package steps;
 
-import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import pages.ProjectSettingsPage;
-
-import java.awt.*;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
-import java.io.*;
-import java.net.URISyntaxException;
-import java.util.Objects;
 
 public class ProjectSettingsStep {
 
@@ -56,7 +48,7 @@ public class ProjectSettingsStep {
         page.getReturnToMainPageButton().click();
     }
 
-    @Step("get text from title of dialog box and discard chanes")
+    @Step("get text from title of dialog box and discard changes")
     public String getTitleFromDialogBoxAndDiscardChanges() {
         returnToMainPage();
         String result = page.getTitleDialogBox().getText();

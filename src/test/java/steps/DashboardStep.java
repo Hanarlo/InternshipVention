@@ -12,15 +12,13 @@ public class DashboardStep {
     }
 
     @Step("go to project settings page")
-    public ProjectSettingsStep goToProjectSettings() {
+    public void goToProjectSettings() {
         page.getProjectSettingsButton().click();
-        return new ProjectSettingsStep();
     }
 
     @Step("go to test cases page")
-    public TestCaseStep goToTestCases() {
+    public void goToTestCases() {
         page.getTestCasesButton().click();
-        return new TestCaseStep();
     }
 
     @Step("get greetings text from dashboard")

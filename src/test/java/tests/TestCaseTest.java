@@ -13,11 +13,10 @@ import utils.BaseTest;
 public class TestCaseTest extends BaseTest {
 
     private TestCaseStep testCaseStep;
-    private DashboardStep dashboardStep;
 
     @BeforeClass
     private void setUpMethod() {
-        dashboardStep = new DashboardStep();
+        DashboardStep dashboardStep = new DashboardStep();
         testCaseStep = new TestCaseStep();
         dashboardStep.goToTestCases();
     }
@@ -25,17 +24,16 @@ public class TestCaseTest extends BaseTest {
 
     @Story("create entity Test")
     @Test
-    public void createEntityTest() throws InterruptedException {
+    public void createEntityTest() {
         testCaseStep.createTestCase();
         Assert.assertTrue(testCaseStep.isTestCaseCreated());
     }
 
     @Story("delete entity test")
     @Test(dependsOnMethods = {"createEntityTest"})
-    public void deleteEntityTest() throws InterruptedException {
+    public void deleteEntityTest() {
         testCaseStep.deleteTestCase();
         Assert.assertTrue(testCaseStep.isTestCaseDeleted());
     }
-
 
 }

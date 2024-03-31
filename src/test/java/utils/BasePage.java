@@ -1,8 +1,6 @@
 package utils;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
 import wait_service.WaitService;
 import web_driver.WebDriverFactory;
 
@@ -14,7 +12,7 @@ public class BasePage {
     protected WaitService wait;
 
     public BasePage() {
-        driver = new WebDriverFactory().getDriver();
+        driver = WebDriverFactory.getDriver();
         wait = new WaitService(driver, Duration.ofSeconds(10));
     }
 

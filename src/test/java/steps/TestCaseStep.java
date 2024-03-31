@@ -12,7 +12,7 @@ public class TestCaseStep {
     }
 
     @Step("create test case")
-    public void createTestCase() throws InterruptedException {
+    public void createTestCase() {
         page.getQuickAddProjectButton().click();
         page.getTextInput().sendKeys("test");
         page.getAddTestCaseButton().click();
