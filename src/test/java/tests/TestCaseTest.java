@@ -27,15 +27,14 @@ public class TestCaseTest extends BaseTest {
     @Test
     public void createEntityTest() throws InterruptedException {
         testCaseStep.createTestCase();
-        Assert.assertTrue(testCaseStep.isTestCaseExists());
+        Assert.assertTrue(testCaseStep.isTestCaseCreated());
     }
 
     @Story("delete entity test")
     @Test(dependsOnMethods = {"createEntityTest"})
     public void deleteEntityTest() throws InterruptedException {
         testCaseStep.deleteTestCase();
-        Thread.sleep(500);
-        Assert.assertFalse(testCaseStep.isTestCaseExists());
+        Assert.assertTrue(testCaseStep.isTestCaseDeleted());
     }
 
 

@@ -38,7 +38,7 @@ public class AccountSettings extends BasePage {
     }
 
     public List<WebElement> getImage() {
-        return driver.findElements(imageLocator);
+        return wait.waitUntilCreated(imageLocator);
     }
 
 }

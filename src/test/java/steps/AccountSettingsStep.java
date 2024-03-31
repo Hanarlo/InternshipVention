@@ -47,7 +47,7 @@ public class AccountSettingsStep {
 
     @Step("checking is avatar image is set")
     public Boolean isImageOnAPage() {
-        return page.getImage().size() > 0;
+        return !page.getImage().isEmpty();
     }
 
     @Step("send too many characters to first name input field")

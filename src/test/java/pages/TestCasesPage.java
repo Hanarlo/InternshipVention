@@ -35,8 +35,13 @@ public class TestCasesPage extends BasePage {
         return wait.waitUntilVisibleByLocator(buttonMoreLocator);
     }
 
-    public boolean isTestCaseExists() {
-        return !driver.findElements(testCaseNameLocator).isEmpty();
+    public Boolean isTestCaseCreated(){
+        System.out.println("======" + wait.waitUntilCreated(testCaseNameLocator).size());
+        return !wait.waitUntilCreated(testCaseNameLocator).isEmpty();
+    }
+
+    public boolean isTestCaseDeleted() {
+        return wait.waitUntilDeleted(testCaseNameLocator).isEmpty();
     }
 
     public WebElement getButtonDelete() {

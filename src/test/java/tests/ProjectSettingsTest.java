@@ -66,7 +66,6 @@ public class ProjectSettingsTest extends BaseTest {
     public void uploadImageTest() throws AWTException, InterruptedException, URISyntaxException {
         integrationsStep.exitFromIntegrationPage();
         accountSettingsStep.uploadImage();
-        Thread.sleep(1000);
         Assert.assertTrue(accountSettingsStep.isImageOnAPage());
     }
 

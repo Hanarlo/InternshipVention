@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class WaitService {
 
@@ -23,4 +24,13 @@ public class WaitService {
     public WebElement waitUntilClickable(By locator) {
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
+
+    public List<WebElement> waitUntilDeleted(By locator){
+        return wait.until(ExpectedConditions.numberOfElementsToBe(locator, 0));
+    }
+
+    public List<WebElement> waitUntilCreated(By locator){
+        return wait.until(ExpectedConditions.numberOfElementsToBe(locator, 1));
+    }
+
 }

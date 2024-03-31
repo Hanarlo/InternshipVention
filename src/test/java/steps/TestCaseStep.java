@@ -16,7 +16,6 @@ public class TestCaseStep {
         page.getQuickAddProjectButton().click();
         page.getTextInput().sendKeys("test");
         page.getAddTestCaseButton().click();
-        Thread.sleep(1000);
     }
 
     @Step("delete case test")
@@ -26,9 +25,14 @@ public class TestCaseStep {
         page.getButtonConfirmDelete().click();
     }
 
-    @Step("check is test case exists")
-    public boolean isTestCaseExists() {
-        return page.isTestCaseExists();
+    @Step("check is test case created")
+    public boolean isTestCaseCreated() {
+        return page.isTestCaseCreated();
+    }
+
+    @Step("check is test case deleted")
+    public boolean isTestCaseDeleted() {
+        return page.isTestCaseDeleted();
     }
 
 }
