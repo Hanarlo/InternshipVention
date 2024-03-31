@@ -14,7 +14,6 @@ public class Specifications {
         return new RequestSpecBuilder()
                 .setBaseUri("https://app.testiny.io/api/v1/")
                 .setContentType(ContentType.JSON)
-                .addHeader("", "4pZB6aUsSUYngWiEopPYvr5bm5aJy55g6gfFHcxEyi7o6E9m")
                 .build();
     }
 

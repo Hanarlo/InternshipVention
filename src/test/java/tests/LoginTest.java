@@ -28,6 +28,6 @@ public class LoginTest extends BaseTest {
     @Test
     public void loginTest() {
         loginStep.performLogin(System.getProperty("email"), System.getProperty("pass"));
-        Assert.assertEquals(dashboardStep.getGreetingsText(), "Hey Yury ChyChayeu");
+        Assert.assertEquals(dashboardStep.getGreetingsText(), "Hey Yury ChiChaev");
     }
 }

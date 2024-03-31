@@ -8,11 +8,12 @@ import web_driver.WebDriverFactory;
 public class BaseTest {
 
     protected static WebDriver driver;
+    protected static String key;
 
     @BeforeSuite
     public void setUp() {
-        WebDriverFactory factory = new WebDriverFactory();
-        driver = factory.getDriver();
+        driver = WebDriverFactory.getDriver();
+        key = System.getProperty("apiKey");
     }
 
     @AfterSuite

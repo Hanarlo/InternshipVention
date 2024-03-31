@@ -5,6 +5,7 @@ import io.qameta.allure.Story;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import utils.BaseTest;
 import utils.InvokedListener;
 
 import java.time.LocalDate;
@@ -13,37 +14,30 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
-@Listeners(InvokedListener.class)
 @Epic("api get requests test")
-public class RestTests {
+public class RestTests extends BaseTest {
 
-    private String key;
-
-    @BeforeClass
-    public void setUpMethod(){
-        key = System.getProperty("apiKey");
-    }
 
 
     @Story("get account information test")
     @Test
     public void getAccountInfo() {
         Specifications.installSpecification(Specifications.requestSpecification(), Specifications.responseSpecification200());
-        given().header("X-Api-Key", key).when().get("account/me").then().body("email", equalTo("chichaevwork@gmail.com"), "firstName", equalTo("Yury"));
+        given().header("X-Api-Key", key).when().get("account/me").then().body("email", equalTo("chichaevwork+qaz@gmail.com"), "firstName", equalTo("Yury"));
     }
 
     @Story("get test case by id")
     @Test
     public void getTestCaseInfoTest() {
         Specifications.installSpecification(Specifications.requestSpecification(), Specifications.responseSpecification200());
-        given().header("X-Api-Key", key).when().get("testcase/81").then().body("title", equalTo("ghf"), "$owner_name", equalTo("Yury ChyChayeu"));
+        given().header("X-Api-Key", key).when().get("testcase/39").then().body("title", equalTo("laf"), "$owner_name", equalTo("Yury ChiChaev"));
     }
 
     @Story("get test plan by id")
     @Test
     public void getTestPlanTest() {
         Specifications.installSpecification(Specifications.requestSpecification(), Specifications.responseSpecification200());
-        given().header("X-Api-Key", key).when().get("testplan/1").then().body("title", equalTo("Smoketest"), "created_at", equalTo("2024-03-15T09:12:28.189Z"));
+        given().header("X-Api-Key", key).when().get("testplan/1").then().body("title", equalTo("Smoketest"), "created_at", equalTo("2024-03-31T19:09:44.525Z"));
     }
 
     @Story("get test plan with incorrect ID")

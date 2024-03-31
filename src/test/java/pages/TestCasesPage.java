@@ -14,7 +14,7 @@ public class TestCasesPage extends BasePage {
     //DELETE CASE
     private final By testCaseNameLocator = By.xpath("//td//span[contains(text(), 'test')]");
     private final By buttonMoreLocator = By
-            .xpath("//span[contains(text(), 'test')]/../../../td//button[@data-testid='button-more']");
+            .xpath("//span[contains(text(), 'test')]/ancestor::tr//button[@data-testid='button-more']");
     private final By buttonDeleteLocator = By.xpath("//li[@data-testid='item-delete']");
     private final By buttonConfirmDeleteLocator = By.cssSelector("[data-testid='button-affirm']");
 
